@@ -1,12 +1,14 @@
-"Note to self
-"to see file-type icons on file names, install ITerm Nerd fonts
+"note to self
+""to see file-type icons on file names, install ITerm Nerd fonts
+"brew tap caskroom/fonts
 "brew cask install font-hack-nerd-font
+"then change yout ITerm2 Non-ASCII font to Hack Regular Nerd Font Complete
 syntax on
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle.vim
 call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" let vundle manage vundle, required
+Plugin 'vundlevim/vundle.vim'
 so  ~/dotfiles/.vim/plugins.vim
 
 call vundle#end()            " required
@@ -17,14 +19,14 @@ set number
 set foldmethod=syntax
 "set this for fuzzy explorer
 set hidden
-colorscheme gruvbox "atom-dark-256
-set cursorline
+colorscheme gruvbox "atom-dark-256  
+set cursorline 
 set scrolloff=3
 set autochdir
 "specify buffers for autocomplete
 set complete=.,w,b,u
 "settings for auto saving files
-let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save = 1  " enable autosave on vim startup
 let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 
@@ -35,9 +37,9 @@ set textwidth=79
 "default number of spaces for tabs
 set expandtab ts=2 sw=2 ai
 "number of spaces when edditing specific files 
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
-autocmd Filetype python setlocal ts=4 sw=4 expandtab
-autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
+autocmd filetype html setlocal ts=2 sw=2 expandtab
+autocmd filetype python setlocal ts=4 sw=4 expandtab
+autocmd filetype javascript setlocal ts=2 sw=2 expandtab
 "flag any whitespace in a python file
 
 "searching
@@ -46,34 +48,34 @@ set incsearch
 set showmatch
 set ignorecase
 set smartcase
-nnoremap <F5> :grep <C-R><C-W> *<CR>
+nnoremap <f5> :grep <c-r><c-w> *<cr>
 "a shortcut to edit vimrc file"
 let mapleader=',' "make comma the mapleader
-map <leader>ev :e ~/.vimrc<CR>
-map <leader>pv :e ~/dotfiles/.vim/plugins.vim<CR>
-map <leader>sv :so ~/.vimrc<CR>
+map <leader>ev :e ~/.vimrc<cr>
+map <leader>pv :e ~/dotfiles/.vim/plugins.vim<cr>
+map <leader>sv :so ~/.vimrc<cr>
 map <leader><space> :nohlsearch<cr>
  " adding new lines in normal mode
 "add a new line below the current
-nmap <leader>nl o<ESC>
+nmap <leader>nl o<esc>
 "add a new line above  the current
-nmap <leader>nL O<ESC>
+nmap <leader>nl o<esc>
 "nmap <leader>q :q<cr>
-nmap <space> i<space><ESC>
+nmap <space> i<space><esc>
 
 "fast saving of a buffer
 nmap <leader>w :w<cr>
 
 "disabling and remapping the arrow keys
-noremap <Up> :m .-2<CR>==
-noremap <Down> :m .+1<CR>==
-"noremap <Left> <NOP>
-"noremap <Right> <NOP>
+noremap <up> :m .-2<cr>==
+noremap <down> :m .+1<cr>==
+"noremap <left> <nop>
+"noremap <right> <nop>
 "do nothing in insert mode
-imap <Up> <NOP>
-imap <Down> <NOP>
-imap <Left> <NOP>
-imap <Right> <NOP>
+"imap <up> <nop>
+"imap <down> <nop>
+"imap <left> <nop>
+"imap <Right> <NOP>
 "move selected lines up/down in visual mode
 vmap <Up> :m '<-2<CR>gv=gv
 vmap <Down> :m '>+1<CR>gv=gv
@@ -114,23 +116,9 @@ nmap <Left> :vertical resize -5<CR>
 nmap <Right> :vertical resize +5<CR>
 
 "configurations for syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set ruler
-set statusline+=%*
-set statusline=2
-set statusline=%f
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 let g:ale_linters = {'javascript': ['eslint']}
 let b:ale_fixers = ['prettier', 'eslint']
 let g:ale_emit_conflict_warnings = 0
-let g:syntastic_python_checkers = ['flake8']
-nmap <leader>st :SyntasticToggleMode<CR>
 
 "cnfigurations for closetag plugin
 "enable autoclose in the following file types
@@ -185,3 +173,8 @@ augroup autoSourceMyvimrc
     au!
     au BufWritePost .vimrc so ~/.vimrc
 augroup END
+
+set nu
+
+set number relativenumber
+
