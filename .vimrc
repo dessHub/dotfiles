@@ -26,9 +26,9 @@ set autochdir
 "specify buffers for autocomplete
 set complete=.,w,b,u
 "settings for auto saving files
-let g:auto_save = 1  " enable autosave on vim startup
-let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
-let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+"let g:auto_save = 1  " enable autosave on vim startup
+"let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
+"let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 
 "white space
 set backspace=eol,start,indent
@@ -104,6 +104,7 @@ vmap <leader>{ c{}<esc>hp
 vmap <leader>[ c[]<esc>hp
 vmap <leader>( c()<esc>hp
 "nerdtreeToogle shortcut
+"autocmd vimenter * NERDTree
 
 "moving between windows/splits
 map <c-j> <c-w>j
@@ -178,3 +179,19 @@ set nu
 
 set number relativenumber
 
+execute pathogen#infect()
+
+" NeoBundle 'airblade/vim-gitgutter'
+
+autocmd User Node if &filetype == "javascript" | setlocal expandtab | endif
+"use <C-w>f to open the file under the cursor in a new vertical split
+autocmd User Node
+  \ if &filetype == "javascript" |
+  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
+  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
+  \ endif
+
+let g:deoplete#enable_at_startup = 1
+let g:ackprg = 'ag --vimgrep'
+
+let g:LustyExplorerSuppressRubyWarning = 1

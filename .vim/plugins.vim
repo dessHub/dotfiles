@@ -46,3 +46,17 @@ Plugin 'gryf/pylint-vim'
 "Plugin For numbertoggle
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
+Plugin 'ludovicchabant/vim-gutentags'
+
+Plugin 'tpope/vim-fugitive.git'
+
+Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+
+Plugin 'airblade/vim-gitgutter'
+Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'ap/vim-css-color'
